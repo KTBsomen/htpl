@@ -1,5 +1,5 @@
 # hypertext programming language
-html but programming language, 
+html but programming language client side, 
 
 it has 
 1) for loop
