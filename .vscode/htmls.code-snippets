@@ -1,0 +1,116 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and 
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope 
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is 
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are: 
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. 
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+
+	
+	
+	
+	"Loop Template": {
+		"prefix":["for", "forloop"],
+		"body": [
+		  "<!-- ",
+		  " Creates a for-loop template with HTML comments, loopid attribute, and array attribute ",
+		  " [ loopid ]: Unique identifier for the loop ",
+		  " [ valueVar ]: Variable name to hold the value of each iteration ",
+		  " [ indexVar ]: Variable name to hold the index of each iteration ",
+		  " [ start ]: Start value for the loop ",
+		  " [ end ]: End value for the loop ",
+		  " [ append ]: Whether to append loop content (true/false);Default behavior is to rewrite the whole section every time ",
+		  " [ array ]: Name of the array to iterate over ",
+		  "template tag is required, Do what ever inside of it",
+		  "here ${} is for accessing the loop elements and {{ }} is used for accessing any JavaScript variable defined anywhere. ",
+		  "Example: <li> this is the index ${[ indexVar ]} and this is the value ${[ valueVar ]}</li>",
+		  "-->",
+		  "",		
+		  "<for-loop valueVar=\"$2\" indexVar=\"$3\" array=\"${4:arrayName}\" start=\"${5:startFrom}\" end=\"${6:endAt}\" loopid=\"${7:UniqueLoopId}\">",
+		  "  <template loopid=\"$7\">",
+		  "",
+		  "",
+		  "   <!-- Your code here -->",
+		  "    $0",
+		  "",
+		  "",
+		  "  </template>",
+		  "</for-loop>"
+		],
+		"description": "Creates a for loop template with HTML comments, loopid attribute, and array attribute"
+	  }
+	,
+	"Condition Block": {
+		"prefix":["cond", "condition-block"],
+		"body": [
+		  "<condition-block ifid=\"${1:unieqe_ifID}\">",
+		  "  <template ifid=\"$1\">",
+		  "<!-- Your code here -->",
+		  "    $0",
+		  "  </template>",
+		  "</condition-block>"
+		],
+		"description": "Creates a condition block with template"
+	  },
+	  "If Condition neq": {
+		"prefix": ["if","ifn","ifnot", "if-condition"],
+		"body": [
+		  "<if-condition value=\"$1\" neq=\"$2\" elseid=\"$3\">",
+		  "  $0",
+		  "</if-condition>",
+		  "<!--else condition must have the same [ elseid ] as the if condition-->",
+		  "<else-condition elseid=\"$3\">",
+		  "  $0",
+		  "</else-condition>"
+		],
+		"description": "Creates an if condition for not equal check"
+	  },
+	  "If Condition eq": {
+		"prefix": ["if","ifeq","ife", ],
+		"body": [
+		  "<if-condition value=\"$1\" eq=\"$2\" elseid=\"$3\">",
+		  "  $0",
+		  "</if-condition>",
+		  "<!--else condition must have the same [ elseid ] as the if condition-->",
+		  "<else-condition elseid=\"$3\">",
+		  " ",
+		  "</else-condition>"
+		],
+		"description": "Creates an if condition for equal check"
+	  }
+	  ,"Else Condition": {
+		"prefix": [ "else","else-condition" ],
+		"body": [
+			"<if-condition value=\"$1\" eq=\"$2\" elseid=\"$3\">",
+		  "",
+		  "</if-condition>",
+		  "<!--else condition must have the same [ elseid ] as the if condition-->",
+		  "<else-condition elseid=\"$3\">",
+		  "$0",
+		  "</else-condition>"
+		],
+		"description": "Creates an else condition with a corosponding if with same elseid"
+	  },
+	  "Include Template": {
+		"prefix": ["inc","include","include-template"],
+		"body": [
+		  "<include-template file=\"$1\"></include-template>"
+		],
+		"description": "Includes a template using relative path"
+	  }
+	  
+	  
+	
+	  
+	  
+}
